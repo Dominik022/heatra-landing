@@ -136,7 +136,20 @@
     cursor: pointer;
   }
   .btn-primary:hover { background: var(--ink-soft); }
-  .hero-note { font-size: 0.84rem; color: var(--text-dim); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.98rem;
+    padding: 13.5px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-block;
+    border: 1.5px solid var(--ink);
+    cursor: pointer;
+  }
+  .btn-secondary:hover { background: var(--ink); color: var(--cream); }
+  .hero-note { font-size: 0.84rem; color: var(--text-dim); width: 100%; }
 
   .feature-row {
     display: flex;
@@ -394,6 +407,7 @@
       </p>
       <div class="hero-actions">
         <a href="#waitlist" class="btn-primary">Early-Bird Rabatt sichern</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-secondary">Umfrage ausfüllen (2 Min.)</a>
         <span class="hero-note">20% Rabatt + kostenloser Versand für die ersten Unterstützer</span>
       </div>
       <div class="feature-row">
@@ -539,10 +553,10 @@
       <p class="privacy-note">
         Deine Daten werden nur verwendet, um dich über HEATRA zu informieren. Keine Weitergabe an Dritte.
       </p>
-      <p style="text-align:center; margin-top:22px; padding-top:22px; border-top:1px solid var(--line); font-size:0.9rem; color:var(--text-dim);">
-        Lieber ausführlicheres Feedback geben?
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" style="color:var(--flame); font-weight:600; text-decoration:underline;">2-Minuten-Umfrage ausfüllen</a>
-      </p>
+      <div style="text-align:center; margin-top:24px; padding-top:24px; border-top:1px solid var(--line);">
+        <p style="font-size:0.9rem; color:var(--text-dim); margin-bottom:14px;">Lieber ausführlicheres Feedback geben?</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-secondary" style="width:100%; text-align:center;">Umfrage ausfüllen (2 Min.)</a>
+      </div>
     </div>
   </div>
 </section>
