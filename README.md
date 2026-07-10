@@ -14,11 +14,11 @@ Free tier = 50 submissions/month, which is plenty for early validation. Upgrade 
 
 ## 2. Add real visuals
 
-The hero section currently has a text placeholder (`.hero-visual` div). Replace it with:
-- A photo of your prototype, or
-- An embedded video (even phone footage of food heating up in the cold works)
+The page has 5 image placeholders (search `PLATZHALTER` in `index.html`):
+- 1 hero shot (`.hero-visual` div)
+- 4 lifestyle tiles below it (`.lifestyle-tile` divs — on the rock, hands opening the box, steaming food close-up, flat-lay of box + cartridges)
 
-Simplest approach: put an `<img src="hero.jpg">` or `<video>` tag in place of the placeholder div content, and drop the image/video file next to `index.html`.
+Replace each placeholder div's text content with an `<img src="...">` tag (or `<video>` for the hero), and drop the image files next to `index.html`. Even a rendered concept image or phone footage works for now — just don't present it as a finished, photographed product; a small "Konzept-Darstellung" caption under the hero keeps things honest while you're still in the prototype stage.
 
 ## 3. Deploy to GitHub Pages (free)
 
