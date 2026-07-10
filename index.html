@@ -8,7 +8,8 @@
 
 <!-- ================================================================
   SETUP NOTES (delete this comment block once configured):
-  1. Formspree is already wired to https://formspree.io/f/xeebykeq
+  1. Feedback is collected entirely via the Google Form linked in the
+     hero and the #umfrage section — no on-site form/Formspree anymore.
   2. Images live in ./images/ (hero-mountain.jpg, how-it-works.jpg,
      exploded-view.jpg) — these are AI concept renders, not real photos.
      Swap them out once you have actual prototype/lifestyle photography.
@@ -391,7 +392,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--flame)"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-0.5-2-1-2.5.8 0.3 3 1.8 3 5.5a6 6 0 0 1-12 0c0-4 2.5-6 3-7 .3-1 .3-2 0-3 1 .2 2.5 1 3 3z"/></svg>
       HEA<span style="color:var(--flame)">TRA</span>
     </div>
-    <a href="#waitlist" class="nav-cta">Warteliste beitreten</a>
+    <a href="#umfrage" class="nav-cta">Umfrage ausfüllen</a>
   </div>
 </header>
 
@@ -406,9 +407,8 @@
         Sommerwanderungen, Camping und lange Touren.
       </p>
       <div class="hero-actions">
-        <a href="#waitlist" class="btn-primary">Early-Bird Rabatt sichern</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-secondary">Umfrage ausfüllen (2 Min.)</a>
-        <span class="hero-note">20% Rabatt + kostenloser Versand für die ersten Unterstützer</span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-primary">Umfrage ausfüllen (2 Min.)</a>
+        <span class="hero-note">Kein Verkauf — ich sammle nur ehrliches Feedback, bevor ich weiterbaue.</span>
       </div>
       <div class="feature-row">
         <div>
@@ -496,69 +496,15 @@
   </div>
 </section>
 
-<section class="section section-alt" id="pricing">
+<section class="section form-section" id="umfrage">
   <div class="wrap">
-    <h2>Preis (geplant)</h2>
-    <p class="section-lead">Die Box kaufst du einmal — Patronen bestellst du nach.</p>
-    <div class="pricing-grid">
-      <div class="price-card featured">
-        <h3>Starter Kit</h3>
-        <div class="price">CHF 49.90 <small>einmalig</small></div>
-        <p style="color:var(--text-dim); font-size:0.92rem;">Box + 3 Heizpatronen</p>
-        <ul>
-          <li>Wiederverwendbare Heizbox</li>
-          <li>Lebensmittelechter Innenbehälter</li>
-          <li>3 Heizpatronen zum Start</li>
-          <li>Anleitung DE/FR/IT</li>
-        </ul>
-      </div>
-      <div class="price-card">
-        <h3>Refill Pack</h3>
-        <div class="price">CHF 9.90 <small>/ 5er Pack</small></div>
-        <p style="color:var(--text-dim); font-size:0.92rem;">Nachfüllpatronen für unterwegs</p>
-        <ul>
-          <li>5 zusätzliche Heizpatronen</li>
-          <li>Ca. CHF 2 pro Anwendung</li>
-          <li>Einfache Lagerung</li>
-        </ul>
-      </div>
-    </div>
-    <p style="color:var(--text-dim); font-size:0.82rem; margin-top:18px;">Preise sind noch nicht final und können sich vor dem Launch noch ändern.</p>
-  </div>
-</section>
-
-<section class="section form-section" id="waitlist">
-  <div class="wrap">
-    <div class="form-card">
-      <span class="discount-badge">🔥 20% Early-Bird Rabatt + gratis Versand</span>
-      <h2>Sichere dir deinen Platz auf der Warteliste</h2>
-      <p style="color:var(--text-dim); font-size:0.95rem;">
-        Wir informieren dich, sobald HEATRA verfügbar ist. Kein Spam, keine Verpflichtung.
+    <div class="form-card" style="text-align:center;">
+      <h2>Hilf mit 2 Minuten Feedback</h2>
+      <p style="color:var(--text-dim); font-size:0.95rem; margin-bottom:26px;">
+        Das ist kein Verkaufsversuch — ich will nur wissen, ob das Produkt für dich Sinn ergibt,
+        bevor ich weiterbaue. Ein paar kurze Fragen, u.a. auch was du dafür zahlen würdest.
       </p>
-
-      <form id="waitlist-form" action="https://formspree.io/f/xeebykeq" method="POST">
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <label class="checkbox-row">
-          <input type="checkbox" name="interested" value="ja" required>
-          Ich bin ernsthaft interessiert und würde HEATRA kaufen.
-        </label>
-        <button type="submit" class="btn-primary">Warteliste beitreten</button>
-        <div class="form-status" id="form-status"></div>
-      </form>
-      <p class="privacy-note">
-        Deine Daten werden nur verwendet, um dich über HEATRA zu informieren. Keine Weitergabe an Dritte.
-      </p>
-      <div style="text-align:center; margin-top:24px; padding-top:24px; border-top:1px solid var(--line);">
-        <p style="font-size:0.9rem; color:var(--text-dim); margin-bottom:14px;">Lieber ausführlicheres Feedback geben?</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-secondary" style="width:100%; text-align:center;">Umfrage ausfüllen (2 Min.)</a>
-      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-primary" style="width:100%; text-align:center;">Umfrage ausfüllen (2 Min.)</a>
     </div>
   </div>
 </section>
@@ -576,7 +522,7 @@
     </div>
     <div class="faq-item">
       <h3>Wann ist HEATRA verfügbar?</h3>
-      <p>Wir sind aktuell in der Entwicklungs- und Testphase. Warteliste-Mitglieder erfahren es zuerst.</p>
+      <p>Wir sind aktuell in der Entwicklungs- und Testphase und sammeln Feedback über die Umfrage.</p>
     </div>
   </div>
 </section>
@@ -586,37 +532,6 @@
     <p>© 2026 HEATRA — Swiss-developed. Alle Rechte vorbehalten.</p>
   </div>
 </footer>
-
-<script>
-  const form = document.getElementById('waitlist-form');
-  const status = document.getElementById('form-status');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    status.className = 'form-status';
-    status.textContent = '';
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        status.textContent = 'Danke! Du bist auf der Warteliste. Wir melden uns bald.';
-        status.className = 'form-status ok';
-        form.reset();
-      } else {
-        status.textContent = 'Etwas ist schiefgelaufen. Bitte versuch es nochmal.';
-        status.className = 'form-status err';
-      }
-    } catch (err) {
-      status.textContent = 'Etwas ist schiefgelaufen. Bitte versuch es nochmal.';
-      status.className = 'form-status err';
-    }
-  });
-</script>
 
 </body>
 </html>
