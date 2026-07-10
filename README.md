@@ -12,13 +12,14 @@ Single-file static site (`index.html` — no build step, no dependencies). Goal:
 
 Free tier = 50 submissions/month, which is plenty for early validation. Upgrade later if needed.
 
-## 2. Add real visuals
+## 2. Visuals
 
-The page has 5 image placeholders (search `PLATZHALTER` in `index.html`):
-- 1 hero shot (`.hero-visual` div)
-- 4 lifestyle tiles below it (`.lifestyle-tile` divs — on the rock, hands opening the box, steaming food close-up, flat-lay of box + cartridges)
+The `images/` folder has 3 AI concept renders already wired in:
+- `hero-mountain.jpg` — product on a rock, Matterhorn in the background (hero visual)
+- `how-it-works.jpg` — 4-step usage diagram
+- `exploded-view.jpg` — component breakdown
 
-Replace each placeholder div's text content with an `<img src="...">` tag (or `<video>` for the hero), and drop the image files next to `index.html`. Even a rendered concept image or phone footage works for now — just don't present it as a finished, photographed product; a small "Konzept-Darstellung" caption under the hero keeps things honest while you're still in the prototype stage.
+These are concept renders, not real photos — that's why there's a "Konzept-Darstellung" caption under the hero shot. Swap any of the three out later by replacing the file in `images/` (keep the same filename, or update the `src` in `index.html`) once you have real prototype or lifestyle photography.
 
 ## 3. Deploy to GitHub Pages (free)
 

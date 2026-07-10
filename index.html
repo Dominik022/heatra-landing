@@ -9,9 +9,9 @@
 <!-- ================================================================
   SETUP NOTES (delete this comment block once configured):
   1. Formspree is already wired to https://formspree.io/f/xeebykeq
-  2. Photo placeholders: search "PLATZHALTER" — replace each placeholder
-     div's content with a real <img>/<video> once you have prototype
-     photos or lifestyle shots (matches the cream/black concept render).
+  2. Images live in ./images/ (hero-mountain.jpg, how-it-works.jpg,
+     exploded-view.jpg) — these are AI concept renders, not real photos.
+     Swap them out once you have actual prototype/lifestyle photography.
   3. Analytics: optionally drop a Plausible/GA snippet before </head>.
 ================================================================= -->
 
@@ -415,20 +415,14 @@
         </div>
       </div>
     </div>
-    <div class="hero-visual">
-      [ PLATZHALTER — Produktfoto oder 10-Sekunden-Demo-Video hier einfügen ]
+    <div>
+      <div class="hero-visual" style="padding:0; overflow:hidden;">
+        <img src="images/hero-mountain.jpg" alt="HEATRA Heizbox auf einem Felsen in den Schweizer Alpen" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <p style="text-align:center; font-size:0.78rem; color:var(--text-dim); margin-top:8px;">Konzept-Darstellung — noch kein fertiges Produktfoto</p>
     </div>
   </div>
 </section>
-
-<div class="wrap">
-  <div class="lifestyle-grid">
-    <div class="lifestyle-tile">PLATZHALTER<br>Auf dem Fels, Berge im Hintergrund</div>
-    <div class="lifestyle-tile">PLATZHALTER<br>Hände öffnen die Box</div>
-    <div class="lifestyle-tile">PLATZHALTER<br>Dampfendes Essen, Nahaufnahme</div>
-    <div class="lifestyle-tile">PLATZHALTER<br>Box + Patronen, Flat Lay</div>
-  </div>
-</div>
 
 <section class="section section-alt" style="margin-top:56px;">
   <div class="wrap">
@@ -457,30 +451,13 @@
 
 <section class="section" id="how-it-works">
   <div class="wrap">
-    <h2>So funktioniert's</h2>
-    <p class="section-lead">Kein Feuer, kein Strom, keine Vorbereitung zuhause nötig.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Essen einfüllen</h3>
-        <p>Dein Essen in die Box geben.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Patrone einlegen</h3>
-        <p>Heizpatrone in die Kammer einsetzen.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Aktivieren</h3>
-        <p>Knopf drücken — Reaktion startet.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>10 Min. warten</h3>
-        <p>Fertig — heisses Essen, überall.</p>
-      </div>
-    </div>
+    <img src="images/how-it-works.jpg" alt="So funktioniert's: 1. Wasser hinzufügen 2. Patrone einlegen 3. Mahlzeit einsetzen 4. Erhitzen" style="width:100%; border-radius:var(--radius); box-shadow:0 4px 20px rgba(34,31,26,0.06);">
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap" style="max-width:640px;">
+    <img src="images/exploded-view.jpg" alt="Explosionsansicht: Deckel, Essensbehälter, Isolierhülse, Heizpatrone, Heizkammer, Basis" style="width:100%; border-radius:var(--radius); box-shadow:0 4px 20px rgba(34,31,26,0.06);">
   </div>
 </section>
 
@@ -510,7 +487,7 @@
     <div class="pricing-grid">
       <div class="price-card featured">
         <h3>Starter Kit</h3>
-        <div class="price">CHF 69 <small>einmalig</small></div>
+        <div class="price">CHF 49.90 <small>einmalig</small></div>
         <p style="color:var(--text-dim); font-size:0.92rem;">Box + 3 Heizpatronen</p>
         <ul>
           <li>Wiederverwendbare Heizbox</li>
@@ -521,15 +498,16 @@
       </div>
       <div class="price-card">
         <h3>Refill Pack</h3>
-        <div class="price">CHF 14.90 <small>/ 5er Pack</small></div>
+        <div class="price">CHF 9.90 <small>/ 5er Pack</small></div>
         <p style="color:var(--text-dim); font-size:0.92rem;">Nachfüllpatronen für unterwegs</p>
         <ul>
           <li>5 zusätzliche Heizpatronen</li>
-          <li>Ca. CHF 3 pro Anwendung</li>
+          <li>Ca. CHF 2 pro Anwendung</li>
           <li>Einfache Lagerung</li>
         </ul>
       </div>
     </div>
+    <p style="color:var(--text-dim); font-size:0.82rem; margin-top:18px;">Preise sind noch nicht final und können sich vor dem Launch noch ändern.</p>
   </div>
 </section>
 
@@ -560,6 +538,10 @@
       </form>
       <p class="privacy-note">
         Deine Daten werden nur verwendet, um dich über HEATRA zu informieren. Keine Weitergabe an Dritte.
+      </p>
+      <p style="text-align:center; margin-top:22px; padding-top:22px; border-top:1px solid var(--line); font-size:0.9rem; color:var(--text-dim);">
+        Lieber ausführlicheres Feedback geben?
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" style="color:var(--flame); font-weight:600; text-decoration:underline;">2-Minuten-Umfrage ausfüllen</a>
       </p>
     </div>
   </div>
