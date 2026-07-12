@@ -317,7 +317,7 @@
   }
   form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
   label { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 4px; display: block; }
-  input[type="text"], input[type="email"], select {
+  input[type="text"], input[type="email"] {
     width: 100%;
     padding: 13px 14px;
     background: var(--cream);
@@ -326,7 +326,7 @@
     color: var(--text);
     font-size: 1rem;
   }
-  input:focus, select:focus { outline: none; border-color: var(--ink); }
+  input:focus { outline: none; border-color: var(--ink); }
   .checkbox-row {
     display: flex;
     align-items: flex-start;
@@ -490,18 +490,6 @@
         <div>
           <label for="email">E-Mail-Adresse</label>
           <input id="email" type="email" name="email" autocomplete="email" placeholder="deine@email.ch" required>
-        </div>
-        <div>
-          <label for="use-case">Wofür würdest du die Heizbox hauptsächlich nutzen?</label>
-          <select id="use-case" name="use_case" required>
-            <option value="" selected disabled>Bitte auswählen</option>
-            <option value="wandern">Wandern &amp; Trekking</option>
-            <option value="camping">Camping</option>
-            <option value="arbeit">Arbeit &amp; unterwegs</option>
-            <option value="reisen">Reisen</option>
-            <option value="notfall">Notfallvorsorge</option>
-            <option value="anderes">Anderes</option>
-          </select>
         </div>
         <label class="checkbox-row">
           <input type="checkbox" name="updates_consent" value="yes" required>
