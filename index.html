@@ -317,7 +317,7 @@
   }
   form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
   label { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 4px; display: block; }
-  input[type="text"], input[type="email"] {
+  input[type="text"], input[type="email"], select {
     width: 100%;
     padding: 13px 14px;
     background: var(--cream);
@@ -326,7 +326,7 @@
     color: var(--text);
     font-size: 1rem;
   }
-  input:focus { outline: none; border-color: var(--ink); }
+  input:focus, select:focus { outline: none; border-color: var(--ink); }
   .checkbox-row {
     display: flex;
     align-items: flex-start;
@@ -339,6 +339,9 @@
   .form-status { font-size: 0.9rem; margin-top: 8px; display: none; }
   .form-status.ok { color: #3f7d3f; display: block; }
   .form-status.err { color: #b8452f; display: block; }
+  .form-success { display: none; text-align: center; }
+  .form-success.visible { display: block; }
+  .form-success .btn-secondary { margin-top: 20px; }
   .privacy-note { font-size: 0.78rem; color: var(--text-dim); margin-top: 14px; }
 
   /* FAQ */
@@ -474,15 +477,46 @@
 
 <section class="section form-section" id="waitlist">
   <div class="wrap">
-    <div class="form-card" style="text-align:center;">
-      <span class="discount-badge">2 Minuten · unverbindlich</span>
-      <h2>Konzept bewerten &amp; Frühzugang sichern</h2>
+    <div class="form-card">
+      <div id="waitlist-intro" style="text-align:center;">
+        <span class="discount-badge">30 Sekunden · unverbindlich</span>
+        <h2>Frühzugang sichern</h2>
+      </div>
       <p style="color:var(--text-dim); font-size:0.95rem; margin-bottom:26px;">
-        Trag dich unverbindlich über die kurze Umfrage ein. Du hilfst damit, die Heizbox passend für
-        echte Touren zu entwickeln, und erfährst zuerst, wenn ein Prototyp verfügbar ist.
+        Trag dich unverbindlich ein und erfahre zuerst, wenn ein Prototyp verfügbar ist.
+        Anschliessend kannst du das Konzept optional in zwei Minuten mitgestalten.
       </p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-primary" data-track="waitlist_form_open" style="width:100%; text-align:center;">Frühzugang sichern (2 Min.)</a>
-      <p class="privacy-note">Unverbindlich und kein Kauf. Deine Angaben werden ausschliesslich zur Validierung und Weiterentwicklung des Konzepts verwendet.</p>
+      <form id="waitlist-form" action="https://formspree.io/f/xeebykeq" method="POST">
+        <div>
+          <label for="email">E-Mail-Adresse</label>
+          <input id="email" type="email" name="email" autocomplete="email" placeholder="deine@email.ch" required>
+        </div>
+        <div>
+          <label for="use-case">Wofür würdest du die Heizbox hauptsächlich nutzen?</label>
+          <select id="use-case" name="use_case" required>
+            <option value="" selected disabled>Bitte auswählen</option>
+            <option value="wandern">Wandern &amp; Trekking</option>
+            <option value="camping">Camping</option>
+            <option value="arbeit">Arbeit &amp; unterwegs</option>
+            <option value="reisen">Reisen</option>
+            <option value="notfall">Notfallvorsorge</option>
+            <option value="anderes">Anderes</option>
+          </select>
+        </div>
+        <label class="checkbox-row">
+          <input type="checkbox" name="updates_consent" value="yes" required>
+          <span>Ich möchte per E-Mail über die Entwicklung und mögliche Prototyp-Tests informiert werden.</span>
+        </label>
+        <input type="hidden" name="source" value="landing-page-waitlist">
+        <button type="submit" class="btn-primary" data-track="waitlist_submit">Frühzugang sichern</button>
+        <p id="form-status" class="form-status" role="status"></p>
+      </form>
+      <div id="form-success" class="form-success">
+        <h2>Du bist dabei!</h2>
+        <p style="color:var(--text-dim);">Danke – dein Frühzugang ist vorgemerkt. Möchtest du noch helfen, Produkt und Preis richtig zu gestalten?</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-secondary" data-track="survey_after_signup">Optionale Umfrage starten (2 Min.)</a>
+      </div>
+      <p class="privacy-note">Unverbindlich und kein Kauf. Deine Angaben werden nur für Produktupdates, Prototyp-Tests und die Weiterentwicklung des Konzepts verwendet.</p>
     </div>
   </div>
 </section>
@@ -499,6 +533,38 @@
     element.addEventListener('click', function () {
       window.dataLayer.push({ event: 'validation_cta_click', cta: element.dataset.track });
     });
+  });
+
+  const waitlistForm = document.getElementById('waitlist-form');
+  const formStatus = document.getElementById('form-status');
+  const formSuccess = document.getElementById('form-success');
+
+  waitlistForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const submitButton = waitlistForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Wird eingetragen …';
+    formStatus.className = 'form-status';
+
+    try {
+      const response = await fetch(waitlistForm.action, {
+        method: 'POST',
+        body: new FormData(waitlistForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!response.ok) throw new Error('Form submission failed');
+
+      window.dataLayer.push({ event: 'waitlist_signup_complete' });
+      waitlistForm.style.display = 'none';
+      document.getElementById('waitlist-intro').style.display = 'none';
+      waitlistForm.previousElementSibling.style.display = 'none';
+      formSuccess.classList.add('visible');
+    } catch (error) {
+      formStatus.textContent = 'Das hat leider nicht funktioniert. Bitte versuche es nochmals.';
+      formStatus.className = 'form-status err';
+      submitButton.disabled = false;
+      submitButton.textContent = 'Frühzugang sichern';
+    }
   });
 </script>
 
