@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heisse Mahlzeit überall, ohne Feuer, Gas oder Strom</title>
-<meta name="description" content="Eine wiederverwendbare Heizbox für warmes Essen beim Wandern, Campen und auf Tour. In 10 Minuten heiss — ohne Feuer, Gas oder Strom.">
+<meta name="description" content="Heatra ist eine wiederverwendbare Heizbox für warmes Essen beim Wandern, Campen und auf Tour — ohne offene Flamme oder Strom. Sichere dir unverbindlich den Frühzugang.">
 
 <!-- ================================================================
   SETUP NOTES (delete this comment block once configured):
   1. Feedback is collected entirely via the Google Form linked in the
-     hero and the #umfrage section — no on-site form/Formspree anymore.
+     hero and the #waitlist section — no on-site form/Formspree anymore.
   2. Images live in ./images/ (hero-mountain.jpg, how-it-works.jpg,
      exploded-view.jpg) — these are AI concept renders, not real photos.
      Swap them out once you have actual prototype/lifestyle photography.
@@ -311,6 +311,22 @@
   .price-card li { padding: 5px 0; }
   .price-card li::before { content: "✓ "; color: var(--flame); font-weight: 700; }
 
+  .validation-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 22px;
+    padding: 36px 40px;
+  }
+  .validation-card h2 { margin-bottom: 8px; }
+  .validation-card p { color: rgba(245,239,228,0.75); max-width: 62ch; }
+  .price-signal { text-align: right; white-space: nowrap; }
+  .price-signal strong { display: block; font-size: 2rem; line-height: 1.1; }
+  .price-signal span { color: rgba(245,239,228,0.7); font-size: 0.82rem; }
+
   /* WAITLIST FORM */
   .form-section .wrap { max-width: 640px; }
   .form-card {
@@ -381,6 +397,8 @@
     .steps { grid-template-columns: 1fr; }
     .form-card { padding: 24px; }
     .feature-row { gap: 20px; }
+    .validation-card { grid-template-columns: 1fr; padding: 28px 24px; }
+    .price-signal { text-align: left; }
   }
 </style>
 </head>
@@ -390,8 +408,9 @@
   <div class="wrap">
     <div class="logo">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--flame); width:24px; height:24px;"><path d="M12 2c1 3-2 4-2 7a3 3 0 0 0 6 0c0-1-0.5-2-1-2.5.8 0.3 3 1.8 3 5.5a6 6 0 0 1-12 0c0-4 2.5-6 3-7 .3-1 .3-2 0-3 1 .2 2.5 1 3 3z"/></svg>
+      <span>HEATRA</span>
     </div>
-    <a href="#umfrage" class="nav-cta">Umfrage ausfüllen</a>
+    <a href="#waitlist" class="nav-cta" data-track="nav_waitlist">Frühzugang sichern</a>
   </div>
 </header>
 
@@ -402,12 +421,13 @@
       <h1>Heisse Mahlzeit überall — ohne Feuer, Gas oder Strom</h1>
       <p class="lead">
         Eine wiederverwendbare Heizbox für dein Essen unterwegs.
-        Patrone rein, aktivieren, 10 Minuten warten — fertig. Perfekt für
-        Sommerwanderungen, Camping und lange Touren.
+        Patrone rein, aktivieren, kurz warten — fertig. Entwickelt für
+        Wanderungen, Camping und lange Touren.
       </p>
       <div class="hero-actions">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-primary">Umfrage ausfüllen (2 Min.)</a>
-        <span class="hero-note">Kein Verkauf — ich sammle nur ehrliches Feedback, bevor ich weiterbaue.</span>
+        <a href="#waitlist" class="btn-primary" data-track="hero_waitlist">Frühzugang sichern</a>
+        <a href="#how-it-works" class="btn-secondary">So funktioniert's</a>
+        <span class="hero-note">Unverbindlich · geplante Einführung ab CHF 79 · Konzept in Entwicklung</span>
       </div>
       <div class="feature-row">
         <div>
@@ -416,15 +436,15 @@
         </div>
         <div>
           <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div>
-          <div class="flabel">Sicher</div>
+          <div class="flabel">Ohne offene Flamme</div>
         </div>
         <div>
           <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c9 0 14-5 14-14 0-1 0-2-.2-3C10 4 5 9 5 18c0 1 0 2 .2 3z"/><path d="M5 21C9 17 12 13 19 5"/></svg></div>
-          <div class="flabel">Sauber</div>
+          <div class="flabel">Box wiederverwendbar</div>
         </div>
         <div>
           <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></div>
-          <div class="flabel">10 Min. heiss</div>
+          <div class="flabel">Ziel: 8–12 Min.</div>
         </div>
       </div>
     </div>
@@ -478,12 +498,12 @@
 
 <section class="features-panels">
   <div class="panel">
-    <h3>Key Features</h3>
+    <h3>Geplante Funktionen</h3>
     <ul class="feature-list">
       <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12c1.5-2 1.5 2 3 0s1.5 2 3 0 1.5 2 3 0 1.5 2 3 0"/><path d="M4 17c1.5-2 1.5 2 3 0s1.5 2 3 0 1.5 2 3 0 1.5 2 3 0"/></svg></span> Flammlose Heiztechnologie</li>
-      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span> Heiss in 8–12 Minuten</li>
-      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></span> Sicher für drinnen &amp; draussen</li>
-      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c9 0 14-5 14-14 0-1 0-2-.2-3C10 4 5 9 5 18c0 1 0 2 .2 3z"/></svg></span> Wiederverwendbar &amp; nachhaltig</li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span> Angestrebte Heizzeit von 8–12 Minuten</li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></span> Geschlossenes System ohne offene Flamme</li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c9 0 14-5 14-14 0-1 0-2-.2-3C10 4 5 9 5 18c0 1 0 2 .2 3z"/></svg></span> Wiederverwendbare Box, austauschbare Heizpatrone</li>
     </ul>
   </div>
   <div class="panel cartridge-panel">
@@ -491,19 +511,36 @@
       <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="3" width="10" height="18" rx="3"/><path d="M7 9h10"/></svg>
     </div>
     <h3 style="margin-bottom:8px;">Heizpatrone</h3>
-    <p>Fortschrittliche chemische Heiztechnologie. Kein Feuer, kein Strom.</p>
+    <p>Wasseraktivierte Heiztechnologie. Das finale System wird noch entwickelt und getestet.</p>
   </div>
 </section>
 
-<section class="section form-section" id="umfrage">
+<section class="section">
+  <div class="wrap">
+    <div class="validation-card">
+      <div>
+        <h2>Wäre Heatra etwas für deine nächste Tour?</h2>
+        <p>Hilf mit, Produkt, Gewicht und Patronenpreis richtig zu entwickeln. Frühinteressierte erhalten Updates und einen geplanten Einführungsrabatt.</p>
+      </div>
+      <div class="price-signal">
+        <strong>ab CHF 79</strong>
+        <span>unverbindlicher Zielpreis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section form-section" id="waitlist">
   <div class="wrap">
     <div class="form-card" style="text-align:center;">
-      <h2>Hilf mit 2 Minuten Feedback</h2>
+      <span class="discount-badge">Geplant: 20% Einführungsrabatt</span>
+      <h2>Frühzugang zu Heatra sichern</h2>
       <p style="color:var(--text-dim); font-size:0.95rem; margin-bottom:26px;">
-        Das ist kein Verkaufsversuch — ich will nur wissen, ob das Produkt für dich Sinn ergibt,
-        bevor ich weiterbaue. Ein paar kurze Fragen, u.a. auch was du dafür zahlen würdest.
+        Trag dich unverbindlich über die kurze Umfrage ein. Du hilfst damit, Heatra passend für
+        echte Touren zu entwickeln, und erfährst zuerst, wenn ein Prototyp verfügbar ist.
       </p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-primary" style="width:100%; text-align:center;">Umfrage ausfüllen (2 Min.)</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_1ix7oDpqVI8phIkt8WjmaFf-f8x8GBeUd_3gptHMEqXu5Q/viewform?usp=publish-editor" target="_blank" rel="noopener" class="btn-primary" data-track="waitlist_form_open" style="width:100%; text-align:center;">Frühzugang sichern (2 Min.)</a>
+      <p class="privacy-note">Unverbindlich und kein Kauf. Deine Angaben werden ausschliesslich zur Validierung und Weiterentwicklung von Heatra verwendet.</p>
     </div>
   </div>
 </section>
@@ -513,6 +550,15 @@
     <p>© 2026 — Swiss-developed. Alle Rechte vorbehalten.</p>
   </div>
 </footer>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  document.querySelectorAll('[data-track]').forEach(function (element) {
+    element.addEventListener('click', function () {
+      window.dataLayer.push({ event: 'heatra_cta_click', cta: element.dataset.track });
+    });
+  });
+</script>
 
 </body>
 </html>
